@@ -1,0 +1,179 @@
+/* ==========================================================================
+ * 软件名称：红乡智推——红色乡村助农 AI 智能推介平台
+ * 版本号：V2.0（助农版）
+ * 文件名称：assets/css/pages/map.css
+ * 模块说明：助农地图页私有样式——顶部说明面板、帮销路线表单与结果、滞销上报看板
+ * 依赖：agri-pro.css（.map-* / .hf-* 基础样式）
+ * 版权所有 (C) 2026 红乡智推项目组 · 西安汽车职业大学
+ * ========================================================================== */
+
+/* -------------------- 顶部 -------------------- */
+.map-hero { padding: 38px 0 34px; }
+.map-hero__eyebrow {
+  display: inline-flex; align-items: center; gap: 6px; font-size: 12px; letter-spacing: 3px;
+  color: #ffd89b; opacity: .92; margin-bottom: 8px;
+}
+.map-hero h1 { font-size: 32px; font-weight: 800; letter-spacing: 2px; }
+.map-hero p { max-width: 620px; line-height: 1.9; }
+
+.map-hero__panel {
+  background: rgba(255, 248, 238, .1); border: 1px solid rgba(255, 216, 155, .32);
+  border-radius: 6px; padding: 16px 18px; backdrop-filter: blur(2px);
+}
+.map-hero__panel-title {
+  font-size: 13px; font-weight: 800; color: #ffd89b; letter-spacing: 1px; margin-bottom: 8px;
+}
+.map-hero__panel ol { margin: 0; padding-left: 18px; }
+.map-hero__panel li {
+  font-size: 12.5px; line-height: 1.85; color: rgba(255, 242, 226, .86);
+}
+.map-hero__panel li b { color: #fff; }
+.map-hero__panel li + li { margin-top: 4px; }
+
+/* -------------------- 侧栏补充 -------------------- */
+.map-side__search { position: relative; margin-top: 10px; }
+.map-side__search input {
+  width: 100%; height: 34px; border: 1px solid var(--hf-line); border-radius: 4px;
+  padding: 0 32px 0 10px; font-size: 13px; outline: none; transition: border-color .2s, box-shadow .2s;
+}
+.map-side__search input:focus { border-color: var(--hf-gold); box-shadow: 0 0 0 3px rgba(201, 160, 100, .14); }
+.map-side__search i { position: absolute; right: 10px; top: 9px; font-size: 13px; color: #a49b92; }
+
+.map-metrics button[data-metric="urgent"].is-active { background: #fdeeeb; border-color: #f0c4bb; color: #a72f22; }
+
+/* 侧栏条目补齐 */
+.map-row__flag { font-size: 10px; padding: 1px 4px; border-radius: 2px; background: #fdeeeb; color: #a72f22; font-weight: 700; }
+.map-row.is-dim { opacity: .45; }
+.map-list-empty { padding: 40px 16px; text-align: center; color: #9a938b; font-size: 13px; }
+
+/* -------------------- 地图画布 -------------------- */
+.map-canvas svg { touch-action: none; }
+.map-region:focus { outline: none; }
+.map-region.is-hot { stroke: #c0392b; stroke-width: 1.6; }
+
+/* 行政区热点脉冲（滞销预警） */
+.map-marker .pulse { animation: hf-pulse 2.4s ease-out infinite; transform-origin: center; }
+@keyframes hf-pulse {
+  0% { r: 7; opacity: .55; }
+  70% { r: 18; opacity: 0; }
+  100% { r: 18; opacity: 0; }
+}
+.map-marker circle.pin { stroke: #fffdf8; stroke-width: 1.2; }
+.map-marker:hover circle.pin { stroke: #ffd89b; stroke-width: 2; }
+
+.map-zoom-tip {
+  position: absolute; left: 50%; top: 14px; transform: translateX(-50%);
+  background: rgba(47, 42, 38, .86); color: #fff5e6; font-size: 12px; padding: 6px 14px;
+  border-radius: 20px; opacity: 0; transition: opacity .3s; pointer-events: none; z-index: 7;
+}
+.map-zoom-tip.is-show { opacity: 1; }
+
+/* -------------------- 路线表单 -------------------- */
+.route-form {
+  background: #fff; border: 1px solid var(--hf-line); border-radius: 6px; padding: 18px;
+  box-shadow: var(--hf-shadow); margin-top: 18px;
+}
+.route-form__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.route-form__grid .hf-field select,
+.route-form__grid .hf-field input { height: 38px; }
+.route-form__foot { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+
+.hf-field textarea {
+  width: 100%; border: 1px solid #e6d9c4; border-radius: 4px; padding: 9px 10px;
+  font-size: 13.5px; background: #fff; outline: none; color: #3f3934; resize: vertical;
+  font-family: inherit; line-height: 1.7;
+}
+.hf-field textarea:focus { border-color: var(--hf-gold); box-shadow: 0 0 0 3px rgba(201, 160, 100, .16); }
+.hf-field .req { color: #c0392b; }
+
+/* -------------------- 路线结果 -------------------- */
+.route-result {
+  background: #fffdf8; border: 1px solid var(--hf-line); border-radius: 6px;
+  box-shadow: var(--hf-shadow); padding: 18px; min-height: 340px;
+}
+.route-placeholder { text-align: center; padding: 60px 24px; color: #9a938b; }
+.route-placeholder i { font-size: 42px; color: #dfd3be; display: block; margin-bottom: 12px; }
+.route-placeholder p { font-size: 13.5px; line-height: 1.9; margin: 0; }
+
+.route-summary {
+  background: linear-gradient(120deg, #fdf6ea, #fffdf8); border-left: 4px solid var(--hf-green);
+  border-radius: 0 4px 4px 0; padding: 12px 16px; font-size: 13.5px; color: #4f4740;
+  line-height: 1.85; margin-bottom: 14px;
+}
+.route-summary b { color: var(--hf-red); }
+
+.route-day { position: relative; padding-left: 30px; padding-bottom: 16px; }
+.route-day::before {
+  content: ""; position: absolute; left: 9px; top: 22px; bottom: -2px; width: 1px;
+  background: linear-gradient(180deg, #c9a064, #ecdfc8);
+}
+.route-day:last-child::before { display: none; }
+.route-day__badge {
+  position: absolute; left: 0; top: 0; width: 20px; height: 20px; border-radius: 50%;
+  background: linear-gradient(135deg, #93200f, #7a1006); color: #ffd89b;
+  font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 2px 6px rgba(122, 16, 6, .3);
+}
+.route-day__head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 6px; }
+.route-day__title { font-size: 15px; font-weight: 800; color: var(--hf-ink); }
+.route-day__budget { font-size: 12px; color: var(--hf-gold-deep); background: #fbf2e2; border: 1px solid #eedcbb; border-radius: 3px; padding: 2px 7px; font-weight: 700; }
+.route-day__advice { font-size: 13px; color: #6f6862; line-height: 1.8; margin-bottom: 8px; }
+.route-day__stops { display: flex; gap: 8px; flex-wrap: wrap; }
+.route-stop {
+  display: inline-flex; flex-direction: column; gap: 1px; border: 1px solid var(--hf-line);
+  background: #fff; border-radius: 4px; padding: 7px 10px; font-size: 12.5px; cursor: pointer;
+  transition: all .2s;
+}
+.route-stop:hover { border-color: var(--hf-gold); background: #fffaf2; transform: translateY(-1px); }
+.route-stop b { color: var(--hf-red); font-size: 13px; }
+.route-stop span { color: #8a8177; font-size: 11.5px; }
+
+/* -------------------- 滞销上报 -------------------- */
+.demand-form {
+  background: #fff; border: 1px solid var(--hf-line); border-radius: 6px; padding: 18px;
+  box-shadow: var(--hf-shadow); margin-top: 18px;
+}
+.demand-form .hf-field { margin-bottom: 0; }
+.demand-form__tip { display: block; font-size: 11.5px; color: #a49b92; margin-top: 8px; line-height: 1.7; }
+
+.demand-board {
+  background: #fff; border: 1px solid var(--hf-line); border-radius: 6px;
+  box-shadow: var(--hf-shadow); overflow: hidden; height: 100%; display: flex; flex-direction: column;
+}
+.demand-board__head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 15px 18px; border-bottom: 1px solid var(--hf-line); background: #fffdf8;
+}
+.demand-board__head h4 { margin: 0; font-size: 15.5px; font-weight: 800; color: var(--hf-ink); }
+.demand-board__head h4 i { color: #c0392b; margin-right: 6px; }
+.demand-board__head span { font-size: 12px; color: #8a8177; }
+.demand-board__list { padding: 8px 10px 12px; max-height: 480px; overflow-y: auto; }
+.demand-board__list::-webkit-scrollbar { width: 6px; }
+.demand-board__list::-webkit-scrollbar-thumb { background: #e8ddcb; border-radius: 6px; }
+
+.demand-item {
+  display: flex; gap: 12px; padding: 12px; border-radius: 4px; border-bottom: 1px dashed var(--hf-line);
+}
+.demand-item:last-child { border-bottom: none; }
+.demand-item__tag {
+  flex: 0 0 42px; height: 42px; border-radius: 4px; background: #fdeeeb; color: #a72f22;
+  display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800;
+  text-align: center; line-height: 1.2; padding: 4px;
+}
+.demand-item__main { flex: 1; min-width: 0; }
+.demand-item__title { font-size: 14px; font-weight: 800; color: var(--hf-ink); display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.demand-item__meta { font-size: 12px; color: #8a8177; margin-top: 3px; }
+.demand-item__note { font-size: 12.5px; color: #6f6862; line-height: 1.7; margin-top: 4px; }
+.demand-item__state { font-size: 11.5px; padding: 2px 7px; border-radius: 3px; background: var(--hf-green-light); color: var(--hf-green); font-weight: 700; }
+
+/* -------------------- 响应式 -------------------- */
+@media (max-width: 991.98px) {
+  .map-hero h1 { font-size: 26px; }
+  .route-form__grid { grid-template-columns: 1fr 1fr; }
+  .map-hero__panel { margin-top: 10px; }
+}
+@media (max-width: 575.98px) {
+  .map-hero h1 { font-size: 22px; }
+  .route-form__grid { grid-template-columns: 1fr; }
+  .map-hero__stats { gap: 14px 22px; }
+}

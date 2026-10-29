@@ -1,0 +1,325 @@
+/* ==========================================================================
+ * 软件名称：红乡智推——红色乡村助农 AI 智能推介平台
+ * 版本号：V1.0
+ * 文件名称：assets/css/theme.css
+ * 模块说明：全局高校官网风格主题层——顶部信息条、主导航、栏目标题、
+ *           卡片栅格、页脚等公共视觉规范
+ *           （加载顺序：bootstrap.min.css → theme.css → 页面私有样式）
+ * 版权所有 (C) 2026 红乡智推项目组 · 西安汽车职业大学
+ * 开发日期：2026年10月
+ * ========================================================================== */
+
+/* ---------- 设计变量 ---------- */
+:root {
+  --gov-red: #8c1007;          /* 主色·深红 */
+  --gov-red-deep: #6b0b02;     /* 深红·信息条与页脚 */
+  --gov-red-light: #a3122a;    /* 亮红·强调 */
+  --gov-gold: #c9a064;         /* 金色·点缀线条 */
+  --gov-ink: #2b2b2b;          /* 正文墨色 */
+  --gov-gray: #f5f6f8;         /* 浅灰背景 */
+  --gov-line: #e3e0d8;         /* 分隔线 */
+  --gov-radius: 4px;           /* 方正圆角 */
+}
+
+/* ---------- 全局基调 ---------- */
+html { scroll-behavior: smooth; }
+body {
+  -webkit-font-smoothing: antialiased;
+  color: var(--gov-ink);
+  font-family: "Microsoft YaHei", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: "SimHei", "Microsoft YaHei", "PingFang SC", sans-serif;
+  font-weight: 700;
+}
+::selection { background: var(--gov-red); color: #fff8ee; }
+
+/* ---------- 顶部信息条（高校官网样式） ---------- */
+.gov-topbar {
+  background: var(--gov-red-deep);
+  color: #f0dcb4;
+  font-size: 13px;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(201, 160, 100, 0.4);
+}
+.gov-topbar a {
+  color: #f0dcb4;
+  text-decoration: none;
+  margin-left: 14px;
+  transition: color 0.2s ease;
+}
+.gov-topbar a:hover { color: #ffffff; text-decoration: underline; }
+
+/* ---------- 主导航（方正红底 · 高校官网样式） ---------- */
+.navbar {
+  background: linear-gradient(180deg, var(--gov-red) 0%, var(--gov-red-deep) 100%) !important;
+  border-bottom: 3px solid var(--gov-gold);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+.navbar-brand {
+  font-weight: 800;
+  letter-spacing: 2px;
+  font-size: 21px;
+  padding: 12px 0;
+}
+.navbar-brand i { color: var(--gov-gold); }
+.navbar .nav-link {
+  font-size: 15px;
+  padding: 16px 16px !important;
+  border-radius: 0;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  position: relative;
+}
+.navbar .nav-link:hover {
+  background: rgba(255, 255, 255, 0.10);
+  color: #fff !important;
+  transform: none;
+}
+.navbar .nav-link.active {
+  background: #fff;
+  color: var(--gov-red) !important;
+  font-weight: 700;
+}
+
+/* ---------- 面包屑 ---------- */
+.breadcrumb-wrap {
+  background: var(--gov-gray);
+  border-bottom: 1px solid var(--gov-line);
+  padding: 10px 0;
+}
+.breadcrumb-item a { color: var(--gov-red); text-decoration: none; }
+.breadcrumb-item a:hover { text-decoration: underline; }
+
+/* ---------- 栏目标题（左竖条 · 高校官网样式） ---------- */
+.section-title {
+  position: relative;
+  padding-left: 14px;
+  font-size: 20px;
+  letter-spacing: 1px;
+  line-height: 1.35;
+}
+.section-title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  bottom: 4px;
+  width: 6px;
+  background: linear-gradient(180deg, var(--gov-red-light), var(--gov-red));
+  border-radius: 2px;
+}
+
+/* ---------- 卡片（方正细边框 · 悬停红描边） ---------- */
+.card {
+  overflow: hidden;
+  border: 1px solid var(--gov-line);
+  border-radius: var(--gov-radius);
+  transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1),
+              box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(140, 16, 7, 0.55);
+  box-shadow: 0 14px 32px rgba(107, 11, 2, 0.13);
+}
+.card img {
+  transition: transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: transform;
+}
+.card:hover img { transform: scale(1.05); }
+.card-img-top {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  width: 100%;
+}
+.card-title { color: var(--gov-ink); }
+.card:hover .card-title { color: var(--gov-red); }
+
+/* ---------- 按钮与表单 ---------- */
+.btn {
+  border-radius: var(--gov-radius);
+  transition: transform 0.2s ease, box-shadow 0.2s ease,
+              background-color 0.2s ease, color 0.2s ease;
+}
+.btn:active { transform: scale(0.97); }
+.btn-primary, .btn-danger, .theme-red {
+  background: var(--gov-red);
+  border-color: var(--gov-red);
+}
+.btn-primary:hover, .btn-danger:hover, .theme-red:hover {
+  background: #a3121a;
+  border-color: #a3121a;
+  box-shadow: 0 8px 18px rgba(140, 16, 7, 0.3);
+}
+.btn-outline-primary { color: var(--gov-red); border-color: var(--gov-red); }
+.btn-outline-primary:hover { background: var(--gov-red); border-color: var(--gov-red); }
+.form-control, .form-select {
+  border-radius: var(--gov-radius);
+}
+.form-control:focus, .form-select:focus {
+  border-color: var(--gov-gold);
+  box-shadow: 0 0 0 0.2rem rgba(201, 160, 100, 0.25);
+}
+
+/* ---------- 横幅（方正 · 高校官网首图） ---------- */
+.banner, [class*="banner"] { border-radius: 0 !important; }
+
+/* ---------- 列表条目（新闻/公告式样） ---------- */
+.list-group-item {
+  border-radius: 0;
+  border-color: var(--gov-line);
+}
+.list-group-item-action:hover {
+  background: #fdf6ec;
+  color: var(--gov-red);
+}
+
+/* ---------- 模态与下拉 ---------- */
+.modal-content { border-radius: var(--gov-radius); border: none; }
+.modal-header {
+  background: var(--gov-gray);
+  border-bottom: 2px solid var(--gov-red);
+  border-radius: var(--gov-radius) var(--gov-radius) 0 0;
+}
+.modal-title { font-size: 17px; }
+.modal-title::before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 16px;
+  background: var(--gov-red);
+  margin-right: 8px;
+  border-radius: 2px;
+  vertical-align: -2px;
+}
+.dropdown-menu {
+  border-radius: var(--gov-radius);
+  animation: gov-fade-up 0.22s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+@keyframes gov-fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- 页脚（高校官网深红页脚） ---------- */
+.footer {
+  background: var(--gov-red-deep);
+  color: #f0dcb4;
+  border-top: 4px solid var(--gov-gold);
+  padding: 36px 0 0;
+  margin-top: 0;
+}
+.footer h5, .footer h6 {
+  color: #fff;
+  font-size: 16px;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+}
+.footer h6::after {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: var(--gov-gold);
+  margin-top: 6px;
+}
+.footer a {
+  color: #f0dcb4;
+  text-decoration: none;
+  display: inline-block;
+  padding: 3px 0;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+.footer a:hover { color: #fff; padding-left: 4px; }
+.footer-links { padding-bottom: 22px; }
+.footer-bottom {
+  border-top: 1px solid rgba(240, 220, 180, 0.25);
+  padding: 14px 0;
+  text-align: center;
+  font-size: 13.5px;
+  color: rgba(240, 220, 180, 0.85);
+}
+.footer-bottom p { margin: 2px 0; }
+
+/* ---------- 键盘可达性 ---------- */
+:focus-visible {
+  outline: 3px solid rgba(201, 160, 100, 0.9);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ---------- 滚动条 ---------- */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #f0ede5; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #a83326, #6b0b02);
+  border-radius: 8px;
+  border: 2px solid #f0ede5;
+}
+
+/* ---------- 返回顶部 ---------- */
+.gov-backtop {
+  position: fixed;
+  right: 26px;
+  bottom: 40px;
+  width: 46px;
+  height: 46px;
+  background: var(--gov-red);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: var(--gov-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: all 0.3s ease;
+  z-index: 1040;
+  box-shadow: 0 8px 20px rgba(107, 11, 2, 0.35);
+}
+.gov-backtop.is-show { opacity: 1; visibility: visible; transform: translateY(0); }
+.gov-backtop:hover { background: #a3121a; }
+
+/* ---------- 打印 ---------- */
+@media print {
+  .navbar, .gov-topbar, footer, .modal, .gov-backtop { display: none !important; }
+}
+
+/* ============================================================
+   全局共享组件：数量选择器 / 加购轻提示 / 协议弹窗排版
+   （V1.1 新增：商品数量加购、个人中心内嵌购物车、商家入驻协议）
+   ============================================================ */
+.qty-box{
+  display:inline-flex;align-items:center;border:1.5px solid #e3d5c5;border-radius:8px;
+  overflow:hidden;background:#fff;
+}
+.qty-box .qty-btn{
+  width:34px;height:34px;border:none;background:#faf5ee;color:#7a1006;
+  font-size:17px;font-weight:700;cursor:pointer;line-height:1;transition:background .15s;
+}
+.qty-box .qty-btn:hover{background:#f0e4d3;}
+.qty-box .qty-input{
+  width:52px;height:34px;border:none;border-left:1px solid #e3d5c5;border-right:1px solid #e3d5c5;
+  text-align:center;font-weight:700;color:#4a2f1c;outline:none;
+  -moz-appearance:textfield;appearance:textfield;
+}
+.qty-box .qty-input::-webkit-outer-spin-button,
+.qty-box .qty-input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}
+.cart-toast{
+  position:fixed;left:50%;bottom:56px;transform:translate(-50%,20px);
+  background:rgba(52,28,14,.94);color:#ffe9c8;padding:12px 26px;border-radius:30px;
+  font-size:15px;z-index:2000;opacity:0;pointer-events:none;
+  transition:opacity .25s ease,transform .25s ease;box-shadow:0 6px 22px rgba(0,0,0,.28);
+}
+.cart-toast.show{opacity:1;transform:translate(-50%,0);}
+.agreement-body h6{
+  color:#8c1a0e;font-weight:800;margin:18px 0 6px;
+  padding-left:10px;border-left:4px solid #c81623;
+}
+.agreement-body p{font-size:14px;color:#555;line-height:1.8;margin-bottom:6px;}
+.uc-cart-item{margin-bottom:12px;}

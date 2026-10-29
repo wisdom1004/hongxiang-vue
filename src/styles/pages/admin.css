@@ -1,0 +1,82 @@
+/* ==========================================================================
+ * 软件名称：红乡智推——红色乡村助农 AI 智能推介平台
+ * 版本号：V2.0（助农版）
+ * 文件名称：assets/css/pages/admin.css
+ * 模块说明：运营后台私有样式——数据看板、滞销预警表、订单表与状态标记
+ * 依赖：assets/css/theme.css（导航/页脚/标题）、assets/css/agri-pro.css（设计变量）
+ * 版权所有 (C) 2026 红乡智推项目组 · 西安汽车职业大学
+ * ========================================================================== */
+
+body { background: var(--hf-cream); }
+
+/* -------------------- 数据看板 -------------------- */
+.admin-stats {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px;
+  margin-bottom: 16px;
+}
+.admin-stats .admin-card { padding: 16px 14px; }
+.admin-stats i { color: var(--hf-gold); opacity: .8; font-size: 22px !important; }
+.admin-stats h4 {
+  font-size: 12px; color: var(--hf-gray); font-weight: 600;
+  margin: 8px 0 6px; letter-spacing: .5px;
+}
+.admin-stats p {
+  font-size: 23px; font-weight: 800; color: var(--hf-red); margin: 0;
+  font-family: "DIN Alternate", "Bahnschrift", sans-serif; line-height: 1.2;
+}
+
+/* -------------------- 卡片 -------------------- */
+.admin-card {
+  background: var(--hf-paper); border: 1px solid var(--hf-line); border-radius: 6px;
+  padding: 20px 22px; margin-bottom: 16px; box-shadow: var(--hf-shadow);
+}
+.admin-card__head {
+  display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+  justify-content: space-between; margin-bottom: 14px; padding-bottom: 12px;
+  border-bottom: 1px solid var(--hf-line);
+}
+.admin-card__head h4 {
+  font-size: 15.5px; font-weight: 800; color: var(--hf-ink); margin: 0; letter-spacing: .3px;
+}
+.admin-card__head h4 i { color: var(--hf-gold-deep); }
+.admin-hint { font-size: 11.5px; color: #9c9384; }
+
+/* -------------------- 表格 -------------------- */
+.admin-card .table { margin-bottom: 0; font-size: 13px; }
+.admin-card .table thead th {
+  background: #faf5ec; color: var(--hf-gray); font-weight: 700; font-size: 12px;
+  border-bottom: 1px solid var(--hf-line); white-space: nowrap; padding: 10px 12px;
+}
+.admin-card .table tbody td {
+  vertical-align: middle; padding: 11px 12px; color: var(--hf-ink);
+  border-color: #f2ece1;
+}
+.admin-card .table tbody tr:hover { background: #fffdf7; }
+.admin-no { font-family: "DIN Alternate", monospace; font-size: 12px; color: var(--hf-gray); }
+
+/* -------------------- 状态与标记 -------------------- */
+.admin-flag {
+  display: inline-block; font-size: 10.5px; font-weight: 700; padding: 1px 7px;
+  border-radius: 2px; vertical-align: middle; margin-left: 4px;
+}
+.admin-flag--urgent { background: #fdecea; color: #b3261e; }
+.admin-flag--presale { background: #eef4fb; color: #1d5f9e; }
+.admin-flag--adopt { background: var(--hf-green-light); color: var(--hf-green); }
+
+.admin-status {
+  display: inline-block; font-size: 11.5px; font-weight: 700; padding: 2px 9px;
+  border-radius: 2px; background: var(--hf-green-light); color: var(--hf-green);
+}
+.admin-index {
+  font-family: "DIN Alternate", monospace; font-weight: 800; color: var(--hf-gold-deep);
+}
+
+/* -------------------- 响应式 -------------------- */
+@media (max-width: 991px) {
+  .admin-stats { grid-template-columns: repeat(2, 1fr); }
+  .admin-stats .admin-card:last-child { grid-column: span 2; }
+}
+@media (max-width: 575px) {
+  .admin-card { padding: 16px; }
+  .admin-stats p { font-size: 19px; }
+}

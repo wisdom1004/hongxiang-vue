@@ -1,0 +1,10 @@
+{
+ "households": 28640,
+ "coops": 126,
+ "sales_amount": 18620000,
+ "premium_rate": 18.6,
+ "cities": 24,
+ "urgent_tons": 36.8,
+ "repeat_rate": 41.3,
+ "trace_batches": 5840
+}

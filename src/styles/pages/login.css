@@ -1,0 +1,100 @@
+/* ==========================================================================
+ * 软件名称：红乡智推——红色乡村助农 AI 智能推介平台
+ * 版本号：V2.0（助农版）
+ * 文件名称：assets/css/pages/login.css
+ * 模块说明：登录 / 注册页私有样式——左文案右表单的双栏卡片
+ * 依赖：assets/css/agri-pro.css（设计变量与 hf-eyebrow、theme-red）
+ * 版权所有 (C) 2026 红乡智推项目组 · 西安汽车职业大学
+ * ========================================================================== */
+
+body { background: var(--hf-cream); }
+
+.login-wrap { padding: 42px 0 60px; }
+
+.login-shell {
+  background: var(--hf-paper);
+  border: 1px solid var(--hf-line);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--hf-shadow-lg);
+}
+
+/* ---------- 左侧文案 ---------- */
+.login-intro {
+  padding: 46px 44px;
+  background: linear-gradient(140deg, var(--hf-red) 0%, var(--hf-red-deep) 100%);
+  color: #fff4e4;
+  position: relative;
+  overflow: hidden;
+}
+.login-intro::after {
+  content: "";
+  position: absolute; right: -60px; bottom: -80px; width: 240px; height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 216, 155, .22), transparent 70%);
+}
+.login-intro .hf-eyebrow { color: #ffd89b; }
+.login-intro .hf-eyebrow::before { background: #ffd89b; }
+.login-intro h1 {
+  font-size: 30px; font-weight: 800; line-height: 1.42;
+  margin: 14px 0 16px; letter-spacing: 1px;
+}
+.login-intro h1 span { color: #ffd89b; }
+.login-intro > p {
+  font-size: 13.5px; line-height: 1.95; color: rgba(255, 244, 228, .82);
+  margin: 0 0 22px; max-width: 420px;
+}
+.login-points { list-style: none; padding: 0; margin: 0; position: relative; z-index: 1; }
+.login-points li {
+  display: flex; align-items: flex-start; gap: 8px;
+  font-size: 13px; line-height: 1.8; color: rgba(255, 244, 228, .9);
+  padding: 6px 0; border-bottom: 1px dashed rgba(255, 216, 155, .2);
+}
+.login-points li:last-child { border-bottom: 0; }
+.login-points i { color: #ffd89b; font-size: 14px; margin-top: 2px; }
+
+/* ---------- 右侧表单 ---------- */
+.login-form-side {
+  padding: 46px 44px;
+  display: flex; align-items: center; justify-content: center;
+}
+.login-card { width: 100%; max-width: 400px; }
+.login-card h2 { font-size: 20px; font-weight: 800; color: var(--hf-ink); margin: 0 0 6px; }
+.login-card__sub { font-size: 12.5px; color: var(--hf-gray); margin: 0 0 22px; }
+.login-card__sub a { color: var(--hf-red-light); }
+
+.login-card .form-label { font-size: 12.5px; color: var(--hf-gray); font-weight: 600; }
+.login-card .form-control {
+  border: 1px solid var(--hf-line); border-radius: 4px; padding: 10px 12px;
+  font-size: 13.5px; background: #fffdfa;
+}
+.login-card .form-control:focus {
+  border-color: var(--hf-gold); box-shadow: 0 0 0 3px rgba(201, 160, 100, .16);
+  background: #fff;
+}
+.login-card .form-check-label { font-size: 12.5px; color: var(--hf-gray); }
+
+.theme-red {
+  background: var(--hf-red); color: #fff; border: 0; border-radius: 4px;
+  padding: 10px 16px; font-size: 14px; font-weight: 700; letter-spacing: 1px;
+  transition: .18s;
+}
+.theme-red:hover { background: var(--hf-red-deep); color: #fff; transform: translateY(-1px); }
+.theme-red:active { transform: none; }
+
+.login-tip { font-size: 11.5px; color: #a79c8e; }
+.login-switch { font-size: 12.5px; color: var(--hf-gray); margin: 18px 0 0; text-align: center; }
+.login-switch a { color: var(--hf-red-light); }
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 991px) {
+  .login-intro { padding: 34px 28px; }
+  .login-intro h1 { font-size: 24px; }
+  .login-form-side { padding: 34px 28px; }
+}
+@media (max-width: 575px) {
+  .login-wrap { padding: 22px 0 44px; }
+  .login-intro { padding: 26px 22px; }
+  .login-intro h1 { font-size: 21px; }
+  .login-form-side { padding: 26px 22px; }
+}

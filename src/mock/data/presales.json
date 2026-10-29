@@ -1,0 +1,72 @@
+[
+ {
+  "id": "p1",
+  "title": "富平流心柿饼 · 霜降预售",
+  "product": 109,
+  "region": "fp",
+  "price": 68,
+  "deposit": 10,
+  "target": 20000,
+  "sold": 12860,
+  "deadline": "2026-11-10",
+  "delivery": "霜降后 15 天内按订单顺序发货",
+  "img": "images/products/shibing.jpg",
+  "intro": "霜降后自然上霜，预售款用于支付柿农采摘与吊晒人工费用。"
+ },
+ {
+  "id": "p2",
+  "title": "百色桂七芒果 · 批次预售",
+  "product": 125,
+  "region": "bs",
+  "price": 45,
+  "deposit": 10,
+  "target": 30000,
+  "sold": 18420,
+  "deadline": "2027-06-20",
+  "delivery": "按成熟批次采摘后 24 小时内发运",
+  "img": "images/products/mangguo.jpg",
+  "intro": "树上熟芒果不耐储运，按预售量安排采摘，减少落果与滞销损耗。"
+ },
+ {
+  "id": "p3",
+  "title": "洋县黑米 · 新米预售",
+  "product": 113,
+  "region": "yx",
+  "price": 19.9,
+  "deposit": 5,
+  "target": 15000,
+  "sold": 9640,
+  "deadline": "2026-11-30",
+  "delivery": "新米加工后 7 天内发货",
+  "img": "images/products/heimi.jpg",
+  "intro": "稻鸭共作生态黑米，预售锁定新米，农户按订单加工，避免陈米积压。"
+ },
+ {
+  "id": "p4",
+  "title": "定西马铃薯 · 订单农业",
+  "product": 122,
+  "region": "dx",
+  "price": 29.9,
+  "deposit": 5,
+  "target": 50000,
+  "sold": 31260,
+  "deadline": "2026-12-15",
+  "delivery": "按周分批发货，可预约到货时间",
+  "img": "images/products/malingshu.jpg",
+  "intro": "合作社与城市社区团购签订订单，按需采收，减少仓储损耗。"
+ },
+ {
+  "id": "p5",
+  "title": "紫阳富硒茶 · 春茶认订",
+  "product": 111,
+  "region": "zy",
+  "price": 128,
+  "deposit": 30,
+  "target": 8000,
+  "sold": 3480,
+  "deadline": "2027-04-20",
+  "delivery": "明前采摘后 10 天内发货",
+  "img": "images/products/chaye.jpg",
+  "intro": "春茶前锁定订单，茶农可提前支付采茶工工资，稳定鲜叶收购价。"
+ }
+]

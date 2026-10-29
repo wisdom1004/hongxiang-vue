@@ -1,0 +1,142 @@
+/* ==========================================================================
+ * 软件名称：红乡智推——红色乡村助农 AI 智能推介平台
+ * 版本号：V2.0（助农版）
+ * 文件名称：assets/css/pages/user-center.css
+ * 模块说明：我的主页私有样式——登录门禁、个人名片、数据概览、订单卡、收藏、收货信息
+ * 依赖：assets/css/agri-pro.css（设计变量与 hf-btn / hf-empty 等公共件）
+ * 版权所有 (C) 2026 红乡智推项目组 · 西安汽车职业大学
+ * ========================================================================== */
+
+body { background: var(--hf-cream); }
+
+.uc-main { padding: 30px 0 64px; }
+
+/* -------------------- 登录门禁 -------------------- */
+.uc-gate {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 14px; min-height: 42vh; text-align: center; color: var(--hf-gray);
+}
+.uc-gate[hidden] { display: none; }
+.uc-gate p { margin: 0; font-size: 13px; letter-spacing: .5px; }
+
+/* -------------------- 个人名片 -------------------- */
+.uc-hero {
+  display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+  background: linear-gradient(120deg, var(--hf-red), var(--hf-red-deep));
+  border-radius: 6px; padding: 24px 26px; color: #fff6e8;
+  box-shadow: var(--hf-shadow); position: relative; overflow: hidden;
+}
+.uc-hero::after {
+  content: ""; position: absolute; right: -40px; top: -60px; width: 220px; height: 220px;
+  border-radius: 50%; background: radial-gradient(circle, rgba(255, 216, 155, .18), transparent 70%);
+}
+.uc-hero__avatar {
+  width: 60px; height: 60px; border-radius: 50%; flex: 0 0 60px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(255, 216, 155, .16); border: 1px solid rgba(255, 216, 155, .5);
+  color: #ffd89b; font-size: 26px;
+}
+.uc-hero__info { flex: 1 1 220px; min-width: 0; }
+.uc-hero__info h1 { font-size: 21px; font-weight: 800; margin: 0 0 5px; letter-spacing: .5px; }
+.uc-hero__info p { margin: 0; font-size: 12.5px; color: rgba(255, 240, 220, .72); }
+.uc-hero__ops { display: flex; gap: 10px; flex-wrap: wrap; position: relative; z-index: 1; }
+.uc-hero .hf-btn--ghost { border-color: rgba(255, 216, 155, .45); color: #ffe9c8; background: rgba(255, 248, 238, .06); }
+.uc-hero .hf-btn--ghost:hover { background: rgba(255, 216, 155, .16); border-color: rgba(255, 216, 155, .8); }
+
+/* -------------------- 数据概览 -------------------- */
+.uc-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 14px 0 0; }
+.uc-stat {
+  background: var(--hf-paper); border: 1px solid var(--hf-line); border-radius: 4px;
+  padding: 14px 16px; display: flex; flex-direction: column; gap: 2px; position: relative;
+}
+.uc-stat i { position: absolute; right: 14px; top: 14px; font-size: 15px; color: var(--hf-gold); opacity: .75; }
+.uc-stat b {
+  font-size: 21px; font-weight: 800; color: var(--hf-red); line-height: 1.25;
+  font-family: "DIN Alternate", "Bahnschrift", sans-serif;
+}
+.uc-stat span { font-size: 11.5px; color: var(--hf-gray); letter-spacing: .5px; }
+
+/* -------------------- 通用卡片 -------------------- */
+.uc-card {
+  background: var(--hf-paper); border: 1px solid var(--hf-line); border-radius: 6px;
+  padding: 20px 22px; margin-top: 14px;
+}
+.uc-card__head {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  flex-wrap: wrap; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--hf-line);
+}
+.uc-card__head h2 { font-size: 15.5px; font-weight: 800; color: var(--hf-ink); margin: 0; letter-spacing: .3px; }
+.uc-card__head h2 i { color: var(--hf-gold-deep); margin-right: 6px; }
+
+.uc-tabs { display: inline-flex; gap: 6px; flex-wrap: wrap; }
+.uc-tabs button {
+  border: 1px solid var(--hf-line); background: #fff; color: var(--hf-gray);
+  font-size: 12.5px; padding: 5px 13px; border-radius: 3px; cursor: pointer; transition: .18s;
+}
+.uc-tabs button:hover { border-color: var(--hf-gold); color: var(--hf-red); }
+.uc-tabs button.is-active { background: var(--hf-red); border-color: var(--hf-red); color: #fff; font-weight: 700; }
+
+/* -------------------- 订单卡 -------------------- */
+.uc-orders { display: flex; flex-direction: column; gap: 10px; }
+.uc-order { border: 1px solid var(--hf-line); border-radius: 4px; overflow: hidden; background: #fffdfa; }
+.uc-order__top {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  padding: 9px 14px; background: #faf5ec; border-bottom: 1px solid var(--hf-line);
+  font-size: 12px; color: var(--hf-gray);
+}
+.uc-order__type { color: var(--hf-green); font-weight: 700; }
+.uc-order__type i { margin-right: 4px; }
+.uc-order__no { font-family: "DIN Alternate", monospace; letter-spacing: .4px; }
+.uc-order__status {
+  margin-left: auto; background: var(--hf-green-light); color: var(--hf-green);
+  font-weight: 700; padding: 2px 9px; border-radius: 2px;
+}
+.uc-order__body { padding: 12px 14px 4px; }
+.uc-order__body h3 { font-size: 14.5px; font-weight: 700; margin: 0 0 5px; color: var(--hf-ink); }
+.uc-order__body p { font-size: 12.5px; color: var(--hf-gray); margin: 0; line-height: 1.7; }
+.uc-order__foot {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 14px 12px; font-size: 12px; color: var(--hf-gray);
+}
+.uc-order__time i { margin-right: 4px; color: var(--hf-gold-deep); }
+.uc-order__amount { font-size: 17px; font-weight: 800; color: var(--hf-red); }
+
+/* -------------------- 收藏 -------------------- */
+.uc-favs { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+.uc-fav {
+  display: flex; align-items: center; gap: 10px; padding: 9px 12px;
+  border: 1px solid var(--hf-line); border-radius: 4px; text-decoration: none;
+  color: var(--hf-ink); background: #fffdfa; transition: .18s;
+}
+.uc-fav:hover { border-color: var(--hf-gold); transform: translateY(-1px); box-shadow: var(--hf-shadow); }
+.uc-fav img { width: 40px; height: 40px; object-fit: cover; border-radius: 3px; flex: 0 0 40px; background: #f3ede4; }
+.uc-fav div { min-width: 0; flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.uc-fav b { font-size: 13px; font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.uc-fav span { font-size: 11.5px; color: var(--hf-gray); }
+.uc-fav > i { color: var(--hf-red-light); font-size: 13px; }
+
+/* -------------------- 收货信息 -------------------- */
+.uc-addr {
+  position: relative; border: 1px solid var(--hf-line); border-radius: 4px;
+  padding: 11px 13px; margin-bottom: 9px; background: #fffdfa;
+}
+.uc-addr.is-default { border-color: var(--hf-gold); background: #fffaf0; }
+.uc-addr__tag {
+  position: absolute; right: 10px; top: 10px; font-size: 10.5px; font-weight: 700;
+  color: #fff; background: var(--hf-gold-deep); padding: 1px 7px; border-radius: 2px;
+}
+.uc-addr b { font-size: 13px; color: var(--hf-ink); display: block; margin-bottom: 3px; }
+.uc-addr p { font-size: 12.5px; color: var(--hf-gray); margin: 0; line-height: 1.65; }
+
+/* -------------------- 响应式 -------------------- */
+@media (max-width: 991px) {
+  .uc-stats { grid-template-columns: repeat(2, 1fr); }
+  .uc-hero { padding: 20px; }
+}
+@media (max-width: 575px) {
+  .uc-main { padding: 20px 0 48px; }
+  .uc-hero__info h1 { font-size: 18px; }
+  .uc-card { padding: 16px; }
+  .uc-stats { gap: 9px; }
+  .uc-stat b { font-size: 18px; }
+}
